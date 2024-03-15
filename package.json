@@ -1,0 +1,6 @@
+{
+  "name": "model-app",
+  "scripts": {
+    "start": "npx live-server"
+  }
+}
