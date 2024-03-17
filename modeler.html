@@ -104,9 +104,10 @@
                 margin: 0;
             }
         </style>
+
         <title> Tropisms in Growth Direction </title>
         <link rel="icon" href="/images/d.ico" type="image/x-icon">
-
+        
         <div class="topnav">
             <a class="active" href="/index.html"><i class="fa fa-fw fa-home"></i>Home</a>
             <a href="#news">News</a>
@@ -116,21 +117,35 @@
         </div>
     </head>
     <body>
-        <input type="text" placeholder="Type " id="soilEmergenceDegree">
         <input type="text" placeholder="Type " id="lightDegree">
         <button type="button" onclick="getInputValues();">Get Value</button>
+        
+        <!-- COMPUTATIONS -->
         <script>
-          function getInputValues() {
-            // Selecting the input element and get its value 
-            let soilEmergenceDegreeVar = document.getElementById("soilEmergenceDegree").value;
-            let lightDegreeVar = document.getElementById("lightDegree").value;
-            // Displaying the value
-            alert(soilEmergenceDegreeVar);
-            alert(lightDegreeVar);
-          }
-          function computations(){
+            // Define variables
+            var photoForce = 2;
+            var graviForce = 1;
+            var forceDenominator = photoForce + graviForce;
+            var photoDegree;
+            var growthDegree;
+
+            // Computations
+            function getInputValues () {
+                // Define undefined variables
+                var photoDegree = document.getElementById('lightDegree').value; // also the degreeRange
+
+                // Outlining degree range
+                if (photoDegree > 180) {
+                    photoDegree = 360 - photoDegree;
+                }
+
+                // Partitioning degree range
+                growthDegree = photoDegree * (photoForce / forceDenominator)
             
-          }
-        </script>
+                // Window display results  
+                window.alert (growthDegree);    
+            }
+
+        </script>        
     </body>
 </html>

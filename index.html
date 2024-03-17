@@ -3,9 +3,27 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        h1,h2 {
+        @font-face {
+            font-family: HedvigLettersSerif;
+            src: url(/styling/HedvigLettersSerif-Regular-VariableFont_opsz.ttf);
+
+        }
+
+        h1 {
+            font-family: HedvigLettersSerif;
+            margin:0;
+            font-weight: bold;
+        }
+
+        h2 {
             font-family: Rockwell;
             margin:0;
+        }
+
+        p {
+            font-family: Rockwell;
+            margin: 0;
+            font-size: 17px;
         }
 
         body {
@@ -46,6 +64,7 @@
         /* Column container */
         .row {
             display: flex;
+            background-color: lightgray;
         }
 
         /* Create two unequal columns that sits next to each other */
@@ -55,23 +74,25 @@
             display: flex;
             flex-direction: column;
             background-color: lightgray;
-            padding-top: 180px;
+            padding-top: 140px;
             padding-right: 30px;
-            gap: 45px;
             padding-bottom: 179px;
         }
 
         .side > h1, .side > h2 {
             text-align: right;
-            font-weight: normal;
         }
 
         .side > h1 {
             font-size: 750%;
+            font-weight: normal;
+            padding-bottom: 45px;
+
         }
 
         .side > h2 {
             font-size: 250%;
+            font-weight: normal;
         }
 
         /* Main column */
@@ -122,12 +143,12 @@
 
 <body>
 
-
     <!-- The flexible grid (content) -->
     <div class="row">
         <div class="side">
             <h1> Synchronous<br>Tropic Growth </h1>
             <h2> A Novel Model of Predicting Plant<br>Movement from Photo- and Gravi-tropic Forces</h2>
+            <p class="center" style="text-align: right; padding-top: 2%;">  | Florida State Science and Engineering Fair | Junior Plant Sciences | Researched by Steven Goodman |</p>
         </div>
         <div class="main">
             <img src="/images/big_logo.png" width="500" height="500" alt="Synchronous Tropism Growth" />
