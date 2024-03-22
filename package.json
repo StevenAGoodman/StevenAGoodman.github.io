@@ -2,5 +2,11 @@
   "name": "model-app",
   "scripts": {
     "start": "npx live-server"
+  },
+  "dependencies": {
+    "@svgdotjs/svg.js": "^3.2.0",
+    "draw.js": "^0.2.0",
+    "svg": "^0.1.0",
+    "svg.draw.js": "^2.0.4"
   }
 }

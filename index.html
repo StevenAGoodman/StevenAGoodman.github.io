@@ -1,82 +1,41 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
+<!-- Universal Header Info Start -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/theme.css">
+    <title> Synchronous Tropic Growth - SSEF </title>
+    <link rel="icon" href="/images/d.ico" type="image/x-icon">
+
+    <!-- Top navigation bar -->
+    <div class="topnav">
+        <a class="active" style="max-width: 70px;" href="/index.html"><i class="fa fa-fw fa-home"></i>Home</a>
+        <a href="/about.html" style="max-width: 70px;">About</a>
+        <a href="#credit" style="max-width: 70px;">Credit</a>
+        <a class="wide" style="border-color:white; border-width:2px; float: right; background-color: #04AA6D;width:20%;" href="/modeler.html"> Begin Modeling </a>
+    </div>
+<!-- Universal Header Info End -->
+
+
+<!-- Page-specific Header Info Start -->
     <style>
-        @font-face {
-            font-family: HedvigLettersSerif;
-            src: url(/styling/HedvigLettersSerif-Regular-VariableFont_opsz.ttf);
-
-        }
-
-        h1 {
-            font-family: HedvigLettersSerif;
-            margin:0;
-            font-weight: bold;
-        }
-
-        h2 {
-            font-family: Rockwell;
-            margin:0;
-        }
-
-        p {
-            font-family: Rockwell;
-            margin: 0;
-            font-size: 17px;
-        }
-
-        body {
-            font-size: 15px;
-            color: black;
-            font-family: 'GFS Didot';
-        }
-
-        /* Add a black background color to the top navigation */
-        .topnav {
-            background-color: #333;
-            overflow: hidden;
-            font-family: Rockwell;
-        }
-
-            /* Style the links inside the navigation bar */
-            .topnav a {
-                float: left;
-                color: #f2f2f2;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px;
-            }
-
-                /* Change the color of links on hover */
-                .topnav a:hover {
-                    background-color: #ddd;
-                    color: black;
-                }
-
-                /* Add a color to the active/current link */
-                .topnav a.active {
-                    background-color: #04AA6D;
-                }
-
-
-        /* Column container */
+        /* TITLE Flex Containers */
         .row {
             display: flex;
-            background-color: lightgray;
+            background-color: #CBDFD1;
+            padding: 10px;
+            padding-top: 50px;
+            padding-bottom: 50px;
         }
 
-        /* Create two unequal columns that sits next to each other */
-        /* Sidebar/left column */
         .side {
             flex: 60%;
             display: flex;
             flex-direction: column;
-            background-color: lightgray;
-            padding-top: 140px;
+            background-color: #CBDFD1;
+            padding: 10px;
             padding-right: 30px;
-            padding-bottom: 179px;
+            padding-top: 10px;
         }
 
         .side > h1, .side > h2 {
@@ -95,18 +54,30 @@
             font-weight: normal;
         }
 
-        /* Main column */
         .main {
             flex: 40%;
-            background-color: lightgray;
-            padding-top: 125px;
+            background-color: #CBDFD1;
+
         }
 
-        /* Footer */
-        .footer {
-            padding: 20px;
-            background: #ddd;
+        /* SECTIONS Flex Containers */
+        .sections {
+            display: flex;
+            flex-direction: row;
+            border-top: 5px solid black;
         }
+            .sections > h4 {
+                text-align: center;
+            }
+
+            .pic {
+                flex: 40%;
+            }
+            .text {
+                padding: 53px;
+                flex: 60%;
+                flex-direction: row;
+            }
 
         /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
         @media screen and (max-width: 375px) {
@@ -114,45 +85,57 @@
                 flex-direction: column-reverse;
             }
         }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        /* Style the body */
-        body {
-            font-family: 'Times New Roman';
-            margin: 0;
-        }
     </style>
-    <title> Synchronous Tropic Growth - SSEF </title>
-    <link rel="icon" href="/images/d.ico" type="image/x-icon">
-
-    <div class="topnav">
-        <a class="active" href="/index.html"><i class="fa fa-fw fa-home"></i>Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-        <a style="border-color:white; border-width:2px; float: right; background-color: #04AA6D;width:20%;" href="/modeler.html">Start Now</a>
-    </div>
-
-
+<!-- Page-specific Header Info End -->
 </head>
 
 
 
 <body>
 
-    <!-- The flexible grid (content) -->
+    <!-- Title Screen -->
     <div class="row">
         <div class="side">
             <h1> Synchronous<br>Tropic Growth </h1>
             <h2> A Novel Model of Predicting Plant<br>Movement from Photo- and Gravi-tropic Forces</h2>
-            <p class="center" style="text-align: right; padding-top: 2%;">  | Florida State Science and Engineering Fair | Junior Plant Sciences | Researched by Steven Goodman |</p>
+            <h3 class="center" style="text-align: right; padding-top: 3%;">  | Florida State Science and Engineering Fair | Junior Plant Sciences | Steven A. Goodman |</h3>
         </div>
         <div class="main">
-            <img src="/images/big_logo.png" width="500" height="500" alt="Synchronous Tropism Growth" />
+            <img src="/images/big_logo.png" width="550" height="550" alt="Synchronous Tropism Growth" />
         </div>
+    </div>
+
+    <!-- Horizontal Sections -->
+    <div class="sections" style="background-color: #90CAE1;">
+        <div class="pic">
+            <img src="/images/model_pic.png" width="693.1" height="470"/>
+        </div>
+        <div class="text">
+            <h4> Begin modeling... </h4>
+            <h5> 
+                Predict the future of plant growth. Input the location of a light source and learn the estimated growth direction and growth shape of your plant.
+            </h5>
+            <p>
+                Plants constantly respond to various stimuli in their environmental. These movements are called tropisms, processes that define the future growth shape of plants. Using the two predominant shoot tropisms, gravitropism and phototropism, we can accurately predict future growth in shoots, thus unearthing a novel botanical modeling tool.
+            </p>
+        </div>
+    </div>
+    <div class="sections" style="background-color: #B1F1D1;">
+        <div class="text">
+            <h4> Learn more... </h4>
+            <h5> 
+                Learn more about this revolutionary botanical tool, how it was convieved, and the many novel applications in various fields.
+            </h5>
+            <p>
+                Plants constantly respond to various stimuli in their environmental. These movements are called tropisms, processes that define the future growth shape of plants. Using the two predominant shoot tropisms, gravitropism and phototropism, we can accurately predict future growth in shoots, thus unearthing a novel botanical modeling tool.
+            </p>
+        </div>
+        <div class="pic">
+            <img src="/images/section1pic.jpg" width="600" height="442.8"/>
+        </div>
+    </div>
+    <div class="sections" style="text-align: center; background-color: #CBDFD1;">
+        <h6> References </h6>
     </div>
 </body>
 </html>
