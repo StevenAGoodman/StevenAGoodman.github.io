@@ -1,151 +1,281 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <style>
-            h1,h2 {
-                font-family: Rockwell;
-                margin:0;
+<head>
+<!-- Universal Header Info Start -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/theme.css">
+    <title> Synchronous Tropic Growth - SSEF </title>
+    <link rel="icon" href="/images/d.ico" type="image/x-icon">
+
+    <!-- Top navigation bar -->
+    <div class="topnav">
+        <a class="active" style="max-width: 70px;" href="/index.html"><i class="fa fa-fw fa-home"></i>Home</a>
+        <a href="/about.html" style="max-width: 70px;">About</a>
+        <a href="/credit.html" style="max-width: 70px;">Credit</a>
+        <a class="wide" style="border-color:white; border-width:2px; float: right; background-color: #04AA6D;width:20%;" href="/modeler.html"> Begin Modeling </a>
+    </div>
+<!-- Universal Header Info End -->
+
+
+<!-- Page-specific Header Info Start -->
+    <style>
+        /* TITLE Flex Containers */
+        .row {
+            display: flex;
+            background-color: #CBDFD1;
+            padding: 10px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .side {
+            flex: 60%;
+            display: flex;
+            flex-direction: column;
+            background-color: #CBDFD1;
+            padding: 10px;
+            padding-right: 30px;
+            padding-top: 10px;
+        }
+
+        .side > h1, .side > h2 {
+            text-align: right;
+        }
+
+        .main {
+            flex: 40%;
+            background-color: #CBDFD1;
+
+        }
+
+        /* SECTIONS Flex Containers */
+        .sections {
+            display: flex;
+            flex-direction: row;
+            border-top: 5px solid black;
+        }
+            .sections > h4 {
+                text-align: center;
             }
 
-            body {
-                font-size: 15px;
-                color: black;
-                font-family: 'GFS Didot';
-            }
-
-            /* Add a black background color to the top navigation */
-            .topnav {
-                background-color: #333;
-                overflow: hidden;
-                font-family: Rockwell;
-            }
-
-                /* Style the links inside the navigation bar */
-                .topnav a {
-                    float: left;
-                    color: #f2f2f2;
-                    text-align: center;
-                    padding: 14px 16px;
-                    text-decoration: none;
-                    font-size: 17px;
-                }
-
-                    /* Change the color of links on hover */
-                    .topnav a:hover {
-                        background-color: #ddd;
-                        color: black;
-                    }
-
-                    /* Add a color to the active/current link */
-                    .topnav a.active {
-                        background-color: #04AA6D;
-                    }
-
-
-            /* Column container */
-            .row {
-                display: flex;
-            }
-
-            /* Create two unequal columns that sits next to each other */
-            /* Sidebar/left column */
-            .side {
-                flex: 60%;
-                display: flex;
-                flex-direction: column;
-                background-color: lightgray;
-                padding-top: 130px;
-                padding-right: 30px;
-                gap: 45px;
-                padding-bottom: 130px;
-            }
-
-            .side > h1, .side > h2 {
-                text-align: right;
-                font-weight: normal;
-            }
-
-            .side > h1 {
-                font-size: 750%;
-            }
-
-            .side > h2 {
-                font-size: 250%;
-            }
-
-            /* Main column */
-            .main {
+            .pic {
                 flex: 40%;
-                background-color: lightgray;
-                padding-top: 75px;
+            }
+            .text {
+                padding: 53px;
+                flex: 60%;
+                flex-direction: row;
             }
 
-            /* Footer */
-            .footer {
-                padding: 20px;
-                background: #ddd;
-            }
+        .title {
+            border-top: 5px solid black;
+            text-align: center;
+            padding: 30px;
+        }
 
-            /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-            @media screen and (max-width: 700px) {
-                .row, .navbar {
-                    flex-direction: column;
-                }
-            }
-
-            * {
-                box-sizing: border-box;
-            }
-
-            /* Style the body */
-            body {
-                font-family: 'Times New Roman';
-                margin: 0;
-            }
-        </style>
-
-        <title> Tropisms in Growth Direction </title>
-        <link rel="icon" href="/images/d.ico" type="image/x-icon">
         
-        <div class="topnav">
-            <a class="active" href="/index.html"><i class="fa fa-fw fa-home"></i>Home</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
-            <a style="border-color:white; border-width:2px; float: right; background-color: #04AA6D;width:20%;" href="modeler.html">Start Now</a>
-        </div>
-    </head>
-    <body>
-        <input type="text" placeholder="Type " id="lightDegree">
-        <button type="button" onclick="getInputValues();">Get Value</button>
-        
-        <!-- COMPUTATIONS -->
-        <script>
-            // Define variables
-            var photoForce = 2;
-            var graviForce = 1;
-            var forceDenominator = photoForce + graviForce;
-            var photoDegree;
-            var growthDegree;
+        .title > h1 {
+            font-size: 500%;
+            font-weight: normal;
 
-            // Computations
-            function getInputValues () {
-                // Define undefined variables
-                var photoDegree = document.getElementById('lightDegree').value; // also the degreeRange
+        }
 
-                // Outlining degree range
-                if (photoDegree > 180) {
-                    photoDegree = 360 - photoDegree;
-                }
+        .title > h2 {
+            font-size: 150%;
+            font-weight: normal;
+        }
 
-                // Partitioning degree range
-                growthDegree = photoDegree * (photoForce / forceDenominator)
+
+        /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 375px) {
+            .row {
+                flex-direction: column-reverse;
+            }
+        }
+    </style>
+<!-- Page-specific Header Info End -->
+</head>
+
+<body>
+            <div class="title" style="background-color: #CBDFD1;">
+                <h1 style="text-align: center;"> <u><b>Modeler</b></u> </h1>
+                <h2>A Novel Algorithm for Accurately Modeling Future Plant Growth from Photo- and Gravi-tropic Forces</h2>
+            </div>
+
+            <!-- Input Field -->
+            <p>d</p>
+            <input type="text" placeholder="Type " id="d">
+            <p>h</p>
+            <input type="text" placeholder="Type " id="h">
+            <button type="button" onclick="calculateResults();">Get Value</button>
+            <div id="growth_model" style="width: 500px; height: 500px"></div>    
             
-                // Window display results  
-                window.alert (growthDegree);    
-            }
 
-        </script>        
-    </body>
-</html>
+
+
+            <div class="sections" style="background-color: #90CAE1;">
+                <div class="text">
+                    <h4 style="text-align: center;"> Before you begin... </h4>
+                    <h5> 
+                        Aspects to be mindful of:
+                    </h5>
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+            <div class="sections" style="background-color: #B1F1D1;">
+                <div class="text">
+                    <h4> Learn more... </h4>
+                    <h5> 
+                        Learn more about this revolutionary botanical tool, how it was convieved, and the many novel applications in various fields.
+                    </h5>
+                    <p>
+                        Plants constantly respond to various stimuli in their environmental. These movements are called tropisms, processes that define the future growth shape of plants. Using the two predominant shoot tropisms, gravitropism and phototropism, we can accurately predict future growth in shoots, thus unearthing a novel botanical modeling tool.
+                    </p>
+                </div>
+                <div class="pic">
+                    <img src="/images/section1pic.jpg" width="600" height="442.8"/>
+                </div>
+            </div>
+            <div class="sections" style="text-align: center; background-color: #CBDFD1;">
+                <h6> References </h6>
+            </div>
+
+
+
+
+
+
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+            <!-- COMPUTATIONS -->
+            <script>
+                google.charts.load('current', {'packages':['corechart']});
+    
+                // Define variables
+                const photoForce = 2;
+                const graviForce = 1;
+                const forceDenominator = photoForce + graviForce;
+                const T = graviForce / forceDenominator;
+                const maxGrowthIterations = 10000;
+                const chartHeaders = ['distance', 'height'];
+                const chartOptions = {
+                    curveType: 'function',
+                    legend: { position: 'bottom' }
+                };
+                var wentNegative = false;
+                var negOrPos = false;
+    
+                // Computations
+                function calculateResults () {
+                    var results = [chartHeaders];
+    
+                    var originalLightPosition = {
+                        height: document.getElementById('h').value,
+                        distance: document.getElementById('d').value
+                    }
+    
+                    var currentLightPosition = originalLightPosition;
+                    results = [
+                        ...results,
+                        getResultArray(originalLightPosition, currentLightPosition)
+                    ];
+    
+                    for(var i = 0; i < maxGrowthIterations; ++i) {
+                        currentLightPosition = getLightPositionAfterGrowthIteration(currentLightPosition);
+    
+                        if (wentNegative == true && negOrPos == false) {
+                            break;
+                        }
+    
+                        results = [
+                            ...results,
+                            getResultArray(originalLightPosition, currentLightPosition)
+                        ];
+                    }
+    
+                    google.charts.setOnLoadCallback(function () {
+                        var data = google.visualization.arrayToDataTable(results);                    
+                        var chart = new google.visualization.LineChart(document.getElementById('growth_model'));                    
+                        chart.draw(data, chartOptions);
+                    });
+                }
+    
+                function getLightPositionAfterGrowthIteration(lightPosition) {
+                    var h = lightPosition.height;
+                    var d = lightPosition.distance;
+                    
+                    if (lightPosition.distance < 0) {
+                        wentNegative = true;
+                    }
+    
+                    if (lightPosition.distance > 0) {
+                        negOrPos = false
+                    } else if (lightPosition.distance < 0) {
+                        negOrPos = true
+                    }
+    
+                    if (d > 0) {
+                        var L = Math.atan(h / d);
+                        var M = (Math.PI / 2) - L;
+                        var b = M * T;
+                        var G = b + L;
+                        var e = Math.sin(G);
+                        var k = Math.cos(G);
+    
+                        return {
+                            height: h - e,
+                            distance: d - k
+                        };
+                    } else if (d < 0 && h < 0) {
+                        var L = Math.atan(d / h);
+                        var M = Math.PI + L;
+                        var b = M * T;
+                        var G = b - L;
+                        var e =  -1 * (Math.cos(G));
+                        var k = Math.sin(G);
+    
+                        return {
+                            height: h - e,
+                            distance: d - k
+                        };
+                    } else if (d < 0 && h > 0) {
+                        var L = Math.abs(Math.atan(h / d))
+                        var M = (Math.PI * 1.5) + L;
+                        var b = M * T;
+    
+                        if (M - b > Math.PI) {
+                            var G = b - L;
+                            var e = -1 * (Math.sin(G));
+                            var k = -1 * (Math.cos(G));
+    
+                            return {
+                            height: h - e,
+                            distance: d - k
+                            };
+                        } else if (M - b < Math.PI) {
+                            var G = (M - b) - (Math.PI / 2);
+                            var e = -1 * (Math.sin(G));
+                            var k = Math.cos(G);
+    
+                            return {
+                                height: h - e,
+                                distance: d - k
+                            };
+                        }
+                    }
+    
+    
+                }
+    
+                function getResultArray(originalLightPosition, lightPosition) {
+                    return [
+                        originalLightPosition.distance - lightPosition.distance,
+                        originalLightPosition.height - lightPosition.height
+                    ];
+                }
+            </script>
+        </body>
+    </html>
