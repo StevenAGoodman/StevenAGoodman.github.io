@@ -173,14 +173,13 @@
 
                 </div>
             </div>
-            <div id="growth_model">
+            <div id="chart-with-overlay">
+                <div id="growth_model"> 
+                </div>
                 <div class="overlay-marker">
                     <img src="/images/light.png" height="50">
                 </div>
-            </div> 
-
-
-
+            </div>
 
 
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -208,8 +207,8 @@
                 function calculateResults () {
                     var documentDistance = document.getElementById("d").value;
                     var scaleFactor = window.innerWidth / documentDistance;
-                    document.getElementById("growth_model").style.height = `${document.getElementById("h").value * scaleFactor}px`;
-                    document.getElementById("growth_model").style.width = `${document.getElementById("d").value * scaleFactor}px`;
+                    document.getElementById("chart-with-overlay").style.height = `${document.getElementById("h").value * scaleFactor}px`;
+                    document.getElementById("chart-with-overlay").style.width = `${document.getElementById("d").value * scaleFactor}px`;
 
                     var results = [chartHeaders];
     
