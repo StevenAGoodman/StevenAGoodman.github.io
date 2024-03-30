@@ -11,7 +11,6 @@
     <div class="topnav">
         <a class="active" style="max-width: 70px;" href="/index.html"><i class="fa fa-fw fa-home"></i>Home</a>
         <a href="/about.html" style="max-width: 70px;">About</a>
-        <a href="/credit.html" style="max-width: 70px;">Credit</a>
         <a class="wide" style="border-color:white; border-width:2px; float: right; background-color: #04AA6D;width:20%;" href="/modeler.html"> Begin Modeling </a>
     </div>
 <!-- Universal Header Info End -->
@@ -59,11 +58,14 @@
             }
 
             .pic {
-                flex: 40%;
+                flex: 55%;
+                flex-direction: row;
+                margin: 0;
+
             }
             .text {
                 padding: 53px;
-                flex: 60%;
+                flex: 45%;
                 flex-direction: row;
             }
 
@@ -97,52 +99,86 @@
 </head>
 
 <body>
+
+
+
+
+
             <div class="title" style="background-color: #CBDFD1;">
                 <h1 style="text-align: center;"> <u><b>Modeler</b></u> </h1>
                 <h2>A Novel Algorithm for Accurately Modeling Future Plant Growth from Photo- and Gravi-tropic Forces</h2>
             </div>
 
-            <!-- Input Field -->
-            <p>d</p>
-            <input type="text" placeholder="Type " id="d">
-            <p>h</p>
-            <input type="text" placeholder="Type " id="h">
-            <button type="button" onclick="calculateResults();">Get Value</button>
-            <div id="growth_model" style="width: 500px; height: 500px"></div>    
-            
-
-
-
             <div class="sections" style="background-color: #90CAE1;">
                 <div class="text">
-                    <h4 style="text-align: center;"> Before you begin... </h4>
-                    <h5> 
-                        Aspects to be mindful of:
-                    </h5>
-                    <p>
-                        
+                    <h4 style="text-align: center; font-size: 45px;"> Before you begin... </h4>
+                    <p style="text-align: center;">
+                        Algorithm does not fully consider all factors of growth and, as such, should be used as a guide, not a reality. 
+                        Plant species, plant health (dehydration, overhydration, disease, etc.), intensity of stimuli, germination, etc. may all cause variance in accuracy.
                     </p>
                 </div>
             </div>
             <div class="sections" style="background-color: #B1F1D1;">
                 <div class="text">
-                    <h4> Learn more... </h4>
-                    <h5> 
-                        Learn more about this revolutionary botanical tool, how it was convieved, and the many novel applications in various fields.
-                    </h5>
-                    <p>
-                        Plants constantly respond to various stimuli in their environmental. These movements are called tropisms, processes that define the future growth shape of plants. Using the two predominant shoot tropisms, gravitropism and phototropism, we can accurately predict future growth in shoots, thus unearthing a novel botanical modeling tool.
+                    <h4 style="font-size: 45px;"><b>1.</b> Measure vertical height </h4>
+                    <h5> Measure the absolute vertical height of a line from the horizontal coordinate of the shoot tip to the light source.</h5>
+                    <p style="padding-top: 5px; padding-bottom: 20px;">
+                        See video for instructions. Input may be positive or negative.
                     </p>
+                    
+                    <div class="form" style="display: flex; flex-direction: column; gap: 20px; border-radius: 30px; border:2px black; background-color: #0d2f60;padding: 20px;">
+                        <p style="color: white;">Input vertical height in millimeters:</p>
+                        <input type="text" placeholder="Type " id="h">
+                        <button onclick="window.location.href='https://www.calculatorsoup.com/calculators/conversions/distance.php';">Free height to millimeters converter</button>
+                    </div>
                 </div>
                 <div class="pic">
-                    <img src="/images/section1pic.jpg" width="600" height="442.8"/>
+                    <figure>
+                        <video width="640" height="480" controls>
+                            <source src="/images/Step1Vid.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </figure>
                 </div>
             </div>
-            <div class="sections" style="text-align: center; background-color: #CBDFD1;">
-                <h6> References </h6>
+            <div class="sections" style="background-color: #B1F1D1;">
+                <div class="text">
+                    <h4 style="font-size: 45px;"> <b>2.</b> Measure horizontal distance </h4>
+                    <h5> Measure the absolute horizontal distance of a line from the shoot tip to the vertical coordinate of the light source.</h5>
+                    <p style="padding-top: 5px; padding-bottom: 20px;">
+                        See video for instructions. Input should <i>only be positive.</i>
+                    </p>
+                    <div class="form" style="display: flex; flex-direction: column; gap: 20px; border-radius: 30px; border:2px black; background-color: #0d2f60;padding: 20px;">
+                        <p style="color: white;">Input horizontal distance in millimeters:</p>
+                        <input type="text" placeholder="Type " id="d">
+                        <button onclick="window.location.href='https://www.calculatorsoup.com/calculators/conversions/distance.php';">Free distance to millimeters converter</button>
+                    </div>
+ 
+                </div>
+                <div class="pic">
+                    <figure>
+                        <video width="640" height="480" controls>
+                            <source src="/images/Step2Vid.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </figure>
+                </div>
             </div>
+            <div class="sections" style="background-color: #0d2f60;">
+                <div class="text">
+                    <h4 style="color:white; text-align: center; font-size: 45px;"> <b>3.</b> See results </h4>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; border-radius: 30px; padding: 20px;">
+                        <button style="background-color: #B1F1D1; width: 50%;" type="button" onclick="setCanvas();"> 3.1 Confirm inputs </button>
+                        <button style="background-color: #B1F1D1; width: 50%;" type="button" onclick="calculateResults();"> 1.2 Graph results </button>
+                    </div>
 
-
+                </div>
+            </div>
+            <div id="growth_model">
+                <div class="overlay-marker">
+                    <img src="/images/light.png" height="50">
+                </div>
+            </div> 
 
 
 
@@ -153,9 +189,10 @@
             <!-- COMPUTATIONS -->
             <script>
                 google.charts.load('current', {'packages':['corechart']});
-    
+
+
                 // Define variables
-                const photoForce = 2;
+                const photoForce = 1.857852375;
                 const graviForce = 1;
                 const forceDenominator = photoForce + graviForce;
                 const T = graviForce / forceDenominator;
@@ -163,11 +200,18 @@
                 const chartHeaders = ['distance', 'height'];
                 const chartOptions = {
                     curveType: 'function',
-                    legend: { position: 'bottom' }
                 };
                 var wentNegative = false;
                 var negOrPos = false;
+
     
+                function setCanvas () {
+                        var documentDistance = document.getElementById("d").value;
+                        var scaleFactor = window.innerWidth / documentDistance;
+                        document.getElementById("growth_model").style.height = `${document.getElementById("h").value * scaleFactor}px`;
+                        document.getElementById("growth_model").style.width = `${document.getElementById("d").value * scaleFactor}px`;
+                }   
+
                 // Computations
                 function calculateResults () {
                     var results = [chartHeaders];
@@ -176,7 +220,7 @@
                         height: document.getElementById('h').value,
                         distance: document.getElementById('d').value
                     }
-    
+
                     var currentLightPosition = originalLightPosition;
                     results = [
                         ...results,
@@ -194,6 +238,7 @@
                             ...results,
                             getResultArray(originalLightPosition, currentLightPosition)
                         ];
+
                     }
     
                     google.charts.setOnLoadCallback(function () {
@@ -201,6 +246,12 @@
                         var chart = new google.visualization.LineChart(document.getElementById('growth_model'));                    
                         chart.draw(data, chartOptions);
                     });
+                    function placeMarker(dataTable) {
+                        var cli = this.getChartLayoutInterface();
+                        var chartArea = cli.getChartAreaBoundingBox();
+                        document.querySelector('.overlay-marker').style.top = document.getElementById("h").value + "px";
+                        document.querySelector('.overlay-marker').style.left = document.getElementById("d").value + "px";
+                    };
                 }
     
                 function getLightPositionAfterGrowthIteration(lightPosition) {
