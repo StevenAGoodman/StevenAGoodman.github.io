@@ -168,8 +168,7 @@
                 <div class="text">
                     <h4 style="color:white; text-align: center; font-size: 45px;"> <b>3.</b> See results </h4>
                     <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; border-radius: 30px; padding: 20px;">
-                        <button style="background-color: #B1F1D1; width: 50%;" type="button" onclick="setCanvas();"> 3.1 Confirm inputs </button>
-                        <button style="background-color: #B1F1D1; width: 50%;" type="button" onclick="calculateResults();"> 1.2 Graph results </button>
+                        <button style="background-color: #B1F1D1; width: 50%;" type="button" onclick="calculateResults();"> 3.1 Graph results </button>
                     </div>
 
                 </div>
@@ -205,15 +204,13 @@
                 var negOrPos = false;
 
     
-                function setCanvas () {
-                        var documentDistance = document.getElementById("d").value;
-                        var scaleFactor = window.innerWidth / documentDistance;
-                        document.getElementById("growth_model").style.height = `${document.getElementById("h").value * scaleFactor}px`;
-                        document.getElementById("growth_model").style.width = `${document.getElementById("d").value * scaleFactor}px`;
-                }   
-
                 // Computations
                 function calculateResults () {
+                    var documentDistance = document.getElementById("d").value;
+                    var scaleFactor = window.innerWidth / documentDistance;
+                    document.getElementById("growth_model").style.height = `${document.getElementById("h").value * scaleFactor}px`;
+                    document.getElementById("growth_model").style.width = `${document.getElementById("d").value * scaleFactor}px`;
+
                     var results = [chartHeaders];
     
                     var originalLightPosition = {
