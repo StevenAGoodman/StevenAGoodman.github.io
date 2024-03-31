@@ -205,7 +205,7 @@
                 function calculateResults () {
                     var documentDistance = document.getElementById("d").value;
                     var scaleFactor = window.innerWidth / documentDistance;
-                    document.getElementById("chart-with-overlay").style.height = `${document.getElementById("h").value * scaleFactor}px`;
+                    document.getElementById("chart-with-overlay").style.height = `${Math.abs(document.getElementById("h").value * scaleFactor)}px`;
                     document.getElementById("chart-with-overlay").style.width = `${document.getElementById("d").value * scaleFactor}px`;
 
                     var results = [chartHeaders];
