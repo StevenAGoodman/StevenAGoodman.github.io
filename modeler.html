@@ -199,8 +199,6 @@
                 const chartOptions = {
                     curveType: 'function',
                 };
-                var wentNegative = false;
-                var negOrPos = false;
 
     
                 // Computations
@@ -222,8 +220,21 @@
                         ...results,
                         getResultArray(originalLightPosition, currentLightPosition)
                     ];
+
+                    var wentNegative = false;
+                    var negOrPos = false;
     
                     for(var i = 0; i < maxGrowthIterations; ++i) {
+                        if (currentLightPosition.distance < 0) {
+                            wentNegative = true;
+                        }
+        
+                        if (currentLightPosition.distance > 0) {
+                            negOrPos = false
+                        } else if (currentLightPosition.distance < 0) {
+                            negOrPos = true
+                        }              
+          
                         currentLightPosition = getLightPositionAfterGrowthIteration(currentLightPosition);
     
                         if (wentNegative == true && negOrPos == false) {
@@ -254,16 +265,6 @@
                     var h = lightPosition.height;
                     var d = lightPosition.distance;
                     
-                    if (lightPosition.distance < 0) {
-                        wentNegative = true;
-                    }
-    
-                    if (lightPosition.distance > 0) {
-                        negOrPos = false
-                    } else if (lightPosition.distance < 0) {
-                        negOrPos = true
-                    }
-    
                     if (d > 0) {
                         var L = Math.atan(h / d);
                         var M = (Math.PI / 2) - L;
