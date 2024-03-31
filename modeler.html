@@ -174,16 +174,18 @@
                 </div>
             </div>
             <div id="chart-with-overlay">
-                <div id="growth_model"> 
+                <div id="growth_model">
                 </div>
-                <div class="overlay-marker">
+                <div id="light_model">
+                </div>
+                <div id="light">
                     <img src="/images/light.png" height="50">
                 </div>
             </div>
 
 
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    
+
             <!-- COMPUTATIONS -->
             <script>
                 google.charts.load('current', {'packages':['corechart']});
@@ -196,11 +198,8 @@
                 const T = graviForce / forceDenominator;
                 const maxGrowthIterations = 10000;
                 const chartHeaders = ['distance', 'height'];
-                const chartOptions = {
-                    curveType: 'function',
-                };
+                const lightWidthPixels = 50;
 
-    
                 // Computations
                 function calculateResults () {
                     var documentDistance = document.getElementById("d").value;
@@ -247,20 +246,47 @@
                         ];
 
                     }
-    
-                    google.charts.setOnLoadCallback(function () {
-                        var data = google.visualization.arrayToDataTable(results);                    
-                        var chart = new google.visualization.LineChart(document.getElementById('growth_model'));                    
-                        chart.draw(data, chartOptions);
-                    });
-                    function placeMarker(dataTable) {
-                        var cli = this.getChartLayoutInterface();
-                        var chartArea = cli.getChartAreaBoundingBox();
-                        document.querySelector('.overlay-marker').style.top = document.getElementById("h").value + "px";
-                        document.querySelector('.overlay-marker').style.left = document.getElementById("d").value + "px";
-                    };
+
+                    drawCharts(results, originalLightPosition);
                 }
-    
+
+                function drawCharts(results, originalLightPosition) {
+                    google.charts.setOnLoadCallback(function () {
+                        var minX = results.reduce((min, current, i) => i === 0 ? 0 : Math.min(current[0], min), 0);
+                        var maxX = results.reduce((max, current, i) => i === 0 ? 0 : Math.max(current[0], max), 0);
+                        var minY = results.reduce((min, current, i) => i === 0 ? 0 : Math.min(current[1], min), 0);
+                        var maxY = results.reduce((max, current, i) => i === 0 ? 0 : Math.max(current[1], max), 0);
+                        var chartOptions = {
+                            curveType: 'function',
+                            hAxis: { minValue: minX, maxValue: maxX },
+                            vAxis: { minValue: minY, maxValue: maxY },
+                        }
+
+                        var data = google.visualization.arrayToDataTable(results);
+                        var growthChart = new google.visualization.LineChart(document.getElementById('growth_model'));
+                        growthChart.draw(data, chartOptions);
+
+                        var lightData = google.visualization.arrayToDataTable([chartHeaders,
+                            [Number(originalLightPosition.distance), Number(originalLightPosition.height)]
+                        ]);
+                        var lightChart = new google.visualization.LineChart(document.getElementById('light_model'));
+                        google.visualization.events.addListener(lightChart, 'ready', placeMarker.bind(lightChart, lightData));
+                        lightChart.draw(lightData, chartOptions);
+                    });
+                }
+
+                function placeMarker(dataTable) {
+                    var cli = this.getChartLayoutInterface();
+                    var chartArea = cli.getChartAreaBoundingBox();
+                    var light = document.getElementById('light');
+
+                    light.style.display = 'initial';
+                    light.style.width = lightWidthPixels + "px";
+                    light.style.height = lightWidthPixels + "px";
+                    light.style.left = Math.floor(cli.getXLocation(Number(dataTable.getValue(0, 0))) - (lightWidthPixels / 2)) + "px";
+                    light.style.top = Math.floor(cli.getYLocation(Number(dataTable.getValue(0, 1))) - (lightWidthPixels / 2)) + "px";
+                };
+
                 function getLightPositionAfterGrowthIteration(lightPosition) {
                     var h = lightPosition.height;
                     var d = lightPosition.distance;
