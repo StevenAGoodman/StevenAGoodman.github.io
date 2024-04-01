@@ -9,10 +9,13 @@
 
     <!-- Top navigation bar -->
     <div class="topnav">
-        <a class="active" style="max-width: 70px;" href="/index.html"><i class="fa fa-fw fa-home"></i>Home</a>
+        <a class="active" style="max-width: 70px;" href="/index.html">Home</a>
         <a href="/about.html" style="max-width: 70px;">About</a>
-        <a class="wide" style="border-color:white; border-width:2px; float: right; background-color: #04AA6D;width:20%;" href="/modeler.html"> Begin Modeling </a>
+        <a class="wide" style="border-color:white; border-width:2px; float: right; background-color: #04AA6D;width:20%; min-width: 150px;" href="/modeler.html"> Begin Modeling </a>
     </div>
+    <script>
+
+    </script>
 <!-- Universal Header Info End -->
 
 
@@ -53,35 +56,115 @@
             font-weight: normal;
         }
 
+        .side > h3 {
+            text-align: right;
+        }
+
+        .main:hover {
+            transform: scale(1.04);
+        }
+
         .main {
             flex: 40%;
             background-color: #CBDFD1;
-
+            transition: transform .2s;
         }
 
+        .main > img {
+            width: 100%;
+            height: 100%;
+            max-width: 550px;
+            max-height: 550px;
+        }  
+
         /* SECTIONS Flex Containers */
-        .sections {
+        .section1 {
             display: flex;
             flex-direction: row;
             border-top: 5px solid black;
         }
-            .sections > h4 {
+        .section2 {
+            display: flex;
+            flex-direction: row;
+            border-top: 5px solid black;
+        }
+            .section1 > h4, .section2 > h4 {
                 text-align: center;
             }
 
             .pic {
                 flex: 40%;
+                transition: transform .2s;
+            }
+            .pic:hover {
+                transform: scale(1.1);
             }
             .text {
                 padding: 53px;
                 flex: 60%;
                 flex-direction: row;
             }
+            .section1p {
+                display: none;
+            }
+
+            .modelpic{
+
+                max-width: 693px; 
+               max-height: 470px;
+            }
+            .aboutpic {
+
+                max-width:600px ;
+                max-height:442.8px;
+            }
+        @media screen and (min-width: 700px){
+            .section1p {
+                display: block;
+            }
+        }
 
         /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-        @media screen and (max-width: 375px) {
+        @media screen and (max-width: 700px) {
             .row {
                 flex-direction: column-reverse;
+            }
+
+            .side > h1 {
+                text-align: center;
+                font-size: 15vw;
+            }
+            .side > h2 {
+                text-align: center;
+                font-size: 7vw;
+            }
+            .side > h3 {
+                text-align: center;
+                font-size: 4vw;
+            }
+
+            .section1 {
+                flex-direction: column;
+            }
+
+            .section2 {
+                flex-direction: column-reverse;
+            }
+            .modelpic{
+                width: 100%;
+                aspect-ratio: auto;
+                max-width: 693px; 
+               max-height: 470px;
+            }
+            .aboutpic {
+                width: 100%;
+                aspect-ratio: auto;
+                max-width:600px ;
+                max-height:442.8px;
+            }
+
+            .text {
+                padding-top: 20px;
             }
         }
     </style>
@@ -97,42 +180,42 @@
         <div class="side">
             <h1> Synchronous Tropic Growth </h1>
             <h2>A Novel Algorithm for Accurately Modeling Future Plant Growth from Photo- and <br> Gravi-tropic Forces</h2>
-            <h3 class="center" style="text-align: right; padding-top: 3%;">  | Florida State Science and Engineering Fair | Junior Plant Sciences | Steven A. Goodman |</h3>
+            <h3 class="center" style="padding-top: 3%;">  | Florida State Science and Engineering Fair | Junior Plant Sciences | Steven A. Goodman |</h3>
         </div>
         <div class="main">
-            <img src="/images/big_logo.png" width="550" height="550" alt="Synchronous Tropism Growth" />
+            <img src="/images/big_logo.png"  alt="Synchronous Tropism Growth" />
         </div>
     </div>
 
     <!-- Horizontal Sections -->
-    <div class="sections" style="background-color: #90CAE1;">
+    <div class="section1" style="background-color: #90CAE1;">
         <div class="pic">
-            <img src="/images/model_pic.png" width="693.1" height="470"/>
+            <a href="modeler.html"><img class="modelpic" src="/images/model_pic.png" /></a> 
         </div>
         <div class="text">
-            <h4 style="cursor: pointer;" onclick="window.location.href='/modeler.html'"> Begin modeling... </h4>
+            <a class="h4" style="cursor: pointer; color:black;" href="modeler.html"> Begin modeling... </a>
             <h5> 
                 Predict the future of plant growth. Input the location of a light source and learn the estimated growth direction and growth shape of your plant.
             </h5>
+            <div class="section1p">
             <p style="padding-bottom: 10px;">
                 Plants constantly respond to various stimuli in their environmental. These movements are called tropisms, processes that define the future growth shape of plants. Using the two predominant shoot tropisms, gravitropism and phototropism, we can accurately predict future growth in shoots, thus unearthing a novel botanical modeling tool.
             </p>
-            <button onclick="window.location.href='/about';" style="" > Reveal estimated growth </button>
+            </div>
         </div>
     </div>
-    <div class="sections" style="background-color: #B1F1D1;">
+    <div class="section2" style="background-color: #B1F1D1;">
         <div class="text">
-            <h4> Learn more... </h4>
+            <a class="h4" style="cursor: pointer; color:black;" href="about.html"> Learn more... </a>
             <h5> 
                 Learn more about this revolutionary botanical tool, how it was convieved, and the many novel applications in various fields.
             </h5>
             <p>
-                Plants constantly respond to various stimuli in their environmental. These movements are called tropisms, processes that define the future growth shape of plants. Using the two predominant shoot tropisms, gravitropism and phototropism, we can accurately predict future growth in shoots, thus unearthing a novel botanical modeling tool.
+                See the mathematics, science, and experimental data behind the algorithm.
             </p>
-            <button></button>
         </div>
         <div class="pic">
-            <img src="/images/section1pic.jpg" width="600" height="442.8"/>
+            <a href="/about.html"><img class="aboutpic" src="/images/section1pic.jpg" /></a>
         </div>
     </div>
     <div class="sections" style="background-color: #CBDFD1;">

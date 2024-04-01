@@ -70,7 +70,6 @@
             }
 
         .title {
-            border-top: 5px solid black;
             text-align: center;
             padding: 30px;
         }
@@ -125,11 +124,10 @@
                     <p style="padding-top: 5px; padding-bottom: 20px;">
                         See video for instructions. Input may be positive or negative.
                     </p>
-                    
+                    <button style="margin-bottom: 20px;" onclick="window.location.href='https://www.calculatorsoup.com/calculators/conversions/distance.php';">Free distance to millimeters converter</button>
                     <div class="form" style="display: flex; flex-direction: column; gap: 20px; border-radius: 30px; border:2px black; background-color: #0d2f60;padding: 20px;">
                         <p style="color: white;">Input vertical height in millimeters:</p>
-                        <input type="text" placeholder="Type " id="h">
-                        <button onclick="window.location.href='https://www.calculatorsoup.com/calculators/conversions/distance.php';">Free height to millimeters converter</button>
+                        <input type="text" placeholder="" id="h">
                     </div>
                 </div>
                 <div class="pic">
@@ -148,10 +146,10 @@
                     <p style="padding-top: 5px; padding-bottom: 20px;">
                         See video for instructions. Input should <i>only be positive.</i>
                     </p>
+                    <button style="margin-bottom: 20px;" onclick="window.location.href='https://www.calculatorsoup.com/calculators/conversions/distance.php';">Free distance to millimeters converter</button>
                     <div class="form" style="display: flex; flex-direction: column; gap: 20px; border-radius: 30px; border:2px black; background-color: #0d2f60;padding: 20px;">
                         <p style="color: white;">Input horizontal distance in millimeters:</p>
-                        <input type="text" placeholder="Type " id="d">
-                        <button onclick="window.location.href='https://www.calculatorsoup.com/calculators/conversions/distance.php';">Free distance to millimeters converter</button>
+                        <input type="text" placeholder=" " id="d">
                     </div>
  
                 </div>
@@ -196,7 +194,7 @@
                 const graviForce = 1;
                 const forceDenominator = photoForce + graviForce;
                 const T = graviForce / forceDenominator;
-                const maxGrowthIterations = 10000;
+                const maxGrowthIterations = 1000000;
                 const chartHeaders = ['distance', 'height'];
                 const lightWidthPixels = 50;
 
