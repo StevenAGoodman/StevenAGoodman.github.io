@@ -96,8 +96,14 @@ body {
         font-size: 17px;
         width: 7%;
         min-width: 45px;
-
-    }        .topnav a:hover {
+    } 
+    @media screen and (max-width: 800px) {
+        .topnav a {
+            width: 5%;
+        }
+    }
+        
+           .topnav a:hover {
             background-color: #ddd;
             color: black;
         }
@@ -158,6 +164,6 @@ button, .button {
 }
 @media screen and (max-width:500px) {
     .topnav > a {
-        font-size: 3vw;
+        font-size: 4vw;
     }
 }
