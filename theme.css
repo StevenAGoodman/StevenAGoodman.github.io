@@ -121,6 +121,11 @@ figure {
     padding: 1.051%;
     align-self: center;
     background-color: #0d2f60;
+    align-content: center;
+}
+video {
+    width: 100%;
+    aspect-ratio: auto;
 }
 input {
     width: 80%;

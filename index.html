@@ -47,14 +47,14 @@
         }
 
         .side > h1 {
-            font-size: 7vw;
+            font-size: 8vw;
             font-weight: normal;
             padding-bottom: 45px;
 
         }
 
         .side > h2 {
-            font-size: 2.5vw;
+            font-size: 2.75vw;
             font-weight: normal;
         }
 
@@ -70,7 +70,7 @@
             flex: 40%;
             background-color: #CBDFD1;
             transition: transform .2s;
-            align-self: center;
+
         }
 
         .main > img {
@@ -79,6 +79,9 @@
             max-width: 550px;
             max-height: 550px;
         }  
+        .pic {
+            align-self: center;
+        }
 
         /* SECTIONS Flex Containers */
         .section1 {
@@ -96,15 +99,14 @@
             }
 
             .pic {
-                flex: 40%;
                 transition: transform .2s;
             }
+
             .pic:hover {
                 transform: scale(1.1);
             }
             .text {
                 padding: 4%;
-                flex: 60%;
                 flex-direction: row;
             }
 
@@ -113,7 +115,7 @@
                 display: none;
             }
 
-            .modelpic{
+            /* .modelpic{
                 width: 100%;
                 max-width: 693px; 
                max-height: 470px;
@@ -122,24 +124,28 @@
                 width: 100%;
                 max-width:600px ;
                 max-height:442.8px;
-            }
-            .section2 > .pic > .aboutpic {
-                justify-content:  flex-end;
-            }
+
+            } */
+
 
         @media screen and (min-width: 1000px){
             .section1p {
                 display: block;
             }
-            .text {
-                flex: 50%;
-            }
-            .pic {
-                flex: 50%;
-            }
-            .text > .h4 {
+            .section1 > .text > .h4 {
                 font-size: 387%;
             }
+            .text > h3 {
+                text-align: right;
+
+            }
+            .text {
+                width: 100%;
+            }
+            .pic img {
+                max-height: 470px;
+            }
+
         }
 
         @media screen and (max-width: 1205px) {
@@ -152,6 +158,12 @@
         @media screen and (max-width: 1000px) {
             .row {
                 flex-direction: column-reverse;
+            }
+
+            .main {
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
 
             .side > h1 {
@@ -187,7 +199,7 @@
                 max-width:1000px ;
                 max-height:738px;
                 border-bottom: 3px solid black;
-            }
+            } 
 
             .text {
                 padding-top: 20px;
@@ -228,6 +240,7 @@
                  Using the two predominant shoot tropisms, gravitropism and phototropism, we can accurately predict future shoot growth.
             </p>
             </div>
+            <a class="button" href="modeler.html" style=" border: 3px solid black; margin-top: 25px; background-color: #0d2f60; padding:10px; color: white; padding-left: 30px; padding-right: 30px;">Modeler</a>
         </div>
     </div>
     <div class="section2" style="background-color: #B1F1D1;">
@@ -239,6 +252,8 @@
             <p>
                 See the mathematics, science, and experimental data behind the algorithm.
             </p>
+            <a class="button" href="about.html" style=" border: 3px solid black; margin-top: 25px; background-color: #0d2f60; padding:10px; color: white; padding-left: 30px; padding-right: 30px;">The Project</a>
+
         </div>
         <div class="pic">
             <a href="/about.html"><img class="aboutpic" src="/images/section1pic.jpg" /></a>
