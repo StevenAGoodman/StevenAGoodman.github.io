@@ -25,7 +25,28 @@
     font-family: Rockwell;
     src: url(/styling/rockwell_ufonts.com_.ttf);
 }
+#chart-with-overlay {
+    position: relative;
+}
+#growth_model, #light_model {
+    width: 100%;
+    height: 100%;;
+}
+#light_model {
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+}
+#light {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
         
+
         .row {
             display: flex;
             background-color: #CBDFD1;
@@ -52,6 +73,10 @@
             flex: 40%;
             background-color: #CBDFD1;
 
+        }
+
+        .light > img {
+            height: 50px;
         }
 
         /* SECTIONS Flex Containers */
@@ -185,8 +210,9 @@
                 <div id="light_model">
                 </div>
                 <div id="light">
-                    <img src="/images/light.png" height="50">
+                    <img src="/images/light.png" >
                 </div>
+                Try connecting to the internet to view graph
             </div>
 
 

@@ -150,29 +150,14 @@ button, .button {
     cursor: pointer;
     text-decoration: none;
 }
-#chart-with-overlay {
-    position: relative;
-}
-#growth_model, #light_model {
-    width: 100%;
-    height: 100%;;
-}
-#light_model {
-    position: absolute;
-    top: 0;
-    left: 0;
-    visibility: hidden;
-}
-#light {
-    position: absolute;
-    display: none;
-    top: 0;
-    left: 0;
-    z-index: 10;
-}
 .pdf {
     width:90%;
     height:800px;
     margin-left: auto;
     margin-right: auto;
+}
+@media screen and (max-width:500px) {
+    .topnav > a {
+        font-size: 3vw;
+    }
 }
