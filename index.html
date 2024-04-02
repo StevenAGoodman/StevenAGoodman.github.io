@@ -30,6 +30,7 @@
             padding-bottom: 50px;
         }
 
+
         .side {
             flex: 60%;
             display: flex;
@@ -38,6 +39,7 @@
             padding: 10px;
             padding-right: 30px;
             padding-top: 10px;
+            align-items: center;
         }
 
         .side > h1, .side > h2 {
@@ -45,14 +47,14 @@
         }
 
         .side > h1 {
-            font-size: 750%;
+            font-size: 7vw;
             font-weight: normal;
             padding-bottom: 45px;
 
         }
 
         .side > h2 {
-            font-size: 250%;
+            font-size: 2.5vw;
             font-weight: normal;
         }
 
@@ -68,6 +70,7 @@
             flex: 40%;
             background-color: #CBDFD1;
             transition: transform .2s;
+            align-self: center;
         }
 
         .main > img {
@@ -100,32 +103,53 @@
                 transform: scale(1.1);
             }
             .text {
-                padding: 53px;
+                padding: 4%;
                 flex: 60%;
                 flex-direction: row;
             }
+
+
             .section1p {
                 display: none;
             }
 
             .modelpic{
-
+                width: 100%;
                 max-width: 693px; 
                max-height: 470px;
             }
             .aboutpic {
-
+                width: 100%;
                 max-width:600px ;
                 max-height:442.8px;
             }
-        @media screen and (min-width: 700px){
+            .section2 > .pic > .aboutpic {
+                justify-content:  flex-end;
+            }
+
+        @media screen and (min-width: 1000px){
             .section1p {
                 display: block;
+            }
+            .text {
+                flex: 50%;
+            }
+            .pic {
+                flex: 50%;
+            }
+            .text > .h4 {
+                font-size: 387%;
+            }
+        }
+
+        @media screen and (max-width: 1205px) {
+            .section1p {
+                display: none;
             }
         }
 
         /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 1000px) {
             .row {
                 flex-direction: column-reverse;
             }
@@ -153,14 +177,16 @@
             .modelpic{
                 width: 100%;
                 aspect-ratio: auto;
-                max-width: 693px; 
-               max-height: 470px;
+                max-width: 1000px; 
+               max-height: 678.2px;
+               border-bottom: 3px solid black;
             }
             .aboutpic {
                 width: 100%;
                 aspect-ratio: auto;
-                max-width:600px ;
-                max-height:442.8px;
+                max-width:1000px ;
+                max-height:738px;
+                border-bottom: 3px solid black;
             }
 
             .text {
@@ -198,8 +224,8 @@
                 Predict the future of plant growth. Input the location of a light source and learn the estimated growth direction and growth shape of your plant.
             </h5>
             <div class="section1p">
-            <p style="padding-bottom: 10px;">
-                Plants constantly respond to various stimuli in their environmental. These movements are called tropisms, processes that define the future growth shape of plants. Using the two predominant shoot tropisms, gravitropism and phototropism, we can accurately predict future growth in shoots, thus unearthing a novel botanical modeling tool.
+            <p >
+                 Using the two predominant shoot tropisms, gravitropism and phototropism, we can accurately predict future shoot growth.
             </p>
             </div>
         </div>
