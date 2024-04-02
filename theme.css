@@ -162,8 +162,4 @@ button, .button {
     margin-left: auto;
     margin-right: auto;
 }
-@media screen and (max-width:500px) {
-    .topnav > a {
-        font-size: 4vw;
-    }
-}
+
