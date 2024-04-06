@@ -290,8 +290,10 @@
                         }
 
                         var data = google.visualization.arrayToDataTable(results);
-                        var growthChart = new google.visualization.LineChart(document.getElementById('growth_model'));
+                        var growthChartElement = document.getElementById('growth_model');
+                        var growthChart = new google.visualization.LineChart(growthChartElement);
                         growthChart.draw(data, chartOptions);
+                        growthChartElement.scrollIntoView();
 
                         var lightData = google.visualization.arrayToDataTable([chartHeaders,
                             [Number(originalLightPosition.distance), Number(originalLightPosition.height)]
