@@ -205,9 +205,7 @@
                 </div>
                 <div id="light_model">
                 </div>
-                <div id="light">
-                    <img src="/images/light.png" height="30">
-                </div>
+                <img id="light" src="/images/light.png" width="30" height="30">
             </div>
 
 
@@ -225,7 +223,6 @@
                 const T = graviForce / forceDenominator;
                 const maxGrowthIterations = 1000000;
                 const chartHeaders = ['distance', 'height'];
-                const lightWidthPixels = 50;
 
                 // Computations
                 function calculateResults () {
@@ -303,10 +300,8 @@
                     var light = document.getElementById('light');
 
                     light.style.display = 'initial';
-                    light.style.width = lightWidthPixels + "px";
-                    light.style.height = lightWidthPixels + "px";
-                    light.style.left = Math.floor(cli.getXLocation(Number(dataTable.getValue(0, 0))) - (lightWidthPixels / 2)) + "px";
-                    light.style.top = Math.floor(cli.getYLocation(Number(dataTable.getValue(0, 1))) - (lightWidthPixels / 2)) + "px";
+                    light.style.left = Math.round(cli.getXLocation(Number(dataTable.getValue(0, 0))) - (light.width / 2)) + "px";
+                    light.style.top = Math.round(cli.getYLocation(Number(dataTable.getValue(0, 1))) - (light.height / 2)) + "px";
                 };
 
                 function getLightPositionAfterGrowthIteration(lightPosition) {
