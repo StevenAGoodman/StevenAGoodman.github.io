@@ -242,10 +242,7 @@
                     }
 
                     var currentLightPosition = originalLightPosition;
-                    results = [
-                        ...results,
-                        getResultArray(originalLightPosition, currentLightPosition)
-                    ];
+                    results.push(getResultArray(originalLightPosition, currentLightPosition));
 
                     var wentNegative = false;
                     var negOrPos = false;
@@ -267,11 +264,7 @@
                             break;
                         }
     
-                        results = [
-                            ...results,
-                            getResultArray(originalLightPosition, currentLightPosition)
-                        ];
-
+                        results.push(getResultArray(originalLightPosition, currentLightPosition));
                     }
 
                     drawCharts(results, originalLightPosition);
