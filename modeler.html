@@ -226,11 +226,6 @@
 
                 // Computations
                 function calculateResults () {
-                    var documentDistance = document.getElementById("d").value;
-                    var scaleFactor = window.innerWidth / documentDistance;
-                    document.getElementById("chart-with-overlay").style.height = `${Math.abs(document.getElementById("h").value * scaleFactor)}px`;
-                    document.getElementById("chart-with-overlay").style.width = `${document.getElementById("d").value * scaleFactor}px`;
-
                     var results = [chartHeaders];
     
                     var originalLightPosition = {
@@ -273,6 +268,13 @@
                         var maxX = results.reduce((max, current, i) => i === 0 ? 0 : Math.max(current[0], max), 0);
                         var minY = results.reduce((min, current, i) => i === 0 ? 0 : Math.min(current[1], min), 0);
                         var maxY = results.reduce((max, current, i) => i === 0 ? 0 : Math.max(current[1], max), 0);
+                        
+                        const xRange = maxX - minX;
+                        const yRange = maxY - minY;
+                        const scaleFactor = window.innerWidth / xRange;
+                        document.getElementById("chart-with-overlay").style.height = `${Math.abs(yRange * scaleFactor)}px`;
+                        document.getElementById("chart-with-overlay").style.width = `${xRange * scaleFactor}px`;
+                        
                         var chartOptions = {
                             curveType: 'function',
                             hAxis: { minValue: minX, maxValue: maxX },
