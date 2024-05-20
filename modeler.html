@@ -1,18 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-<!-- Universal Header Info Start -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/theme.css">
-    <title> Synchronous Tropic Growth - SSEF </title>
-    <link rel="icon" href="/images/d.ico" type="image/x-icon">
 
-    <!-- Top navigation bar -->
-    <div class="topnav">
-        <a class="active" style="max-width: 70px;" href="/index.html">Home</a>
-        <a href="/about.html" style="max-width: 70px;">About</a>
-        <a class="wide" style="border-color:white; border-width:2px; float: right; background-color: #04AA6D;width:20%; min-width: 150px;" href="/modeler.html"> Begin Modeling </a>
-    </div>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Universal Header Info End -->
@@ -28,7 +17,10 @@
 #chart-with-overlay {
     position: relative;
 }
-#growth_model, #light_model {
+#chart-updating, #chart-updating-results {
+    position: relative;
+}
+#growth_model, #growth_model_updating, #light_model, #growth_model_updating_results {
     width: 100%;
     height: 100%;;
 }
@@ -115,6 +107,40 @@
         }
 
 
+.tab {
+  overflow: hidden; 
+  display: flex;
+  justify-content: center;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+ 
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+}
+
+
+
         /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
         @media screen and (max-width: 1000px) {
              .sections {
@@ -127,28 +153,51 @@
 </head>
 
 <body>
+    <header>
+        <!-- Universal Header Info Start -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/theme.css">
+    <title> Synchronous Tropic Growth - SSEF </title>
+    <link rel="icon" href="/images/d.ico" type="image/x-icon">
+
+    <!-- Top navigation bar -->
+    <div class="topnav">
+        <a class="active" style="max-width: 70px;" href="/index.html">Home</a>
+        <a class="about" href="/about.html" style="max-width: 70px;">About</a>
+        <a class="wide" style="border-color:white; border-width:2px; float: right; background-color: #04AA6D;width:20%; min-width: 150px;" href="/modeler.html"> Begin Modeling </a>
+    </div>
+    </header>
+
+    <div class="title" style="background-color: #CBDFD1;">
+        <h1 style="text-align: center;"> <u><b>Modeler</b></u> </h1>
+        <h2>A Novel Algorithm for Accurately Modeling Future Plant Growth from Photo- and Gravi-tropic Forces</h2>
+    </div>
+
+    <div class="sections" style="background-color: #90CAE1;">
+        <div class="text">
+            <h4 style="text-align: center; font-size: 45px;"> Before you begin... </h4>
+            <p style="text-align: center;">
+                Algorithm does not fully consider all factors of growth and, as such, should be used as a guide, not a reality. 
+                Plant species, plant health (dehydration, overhydration, disease, etc.), intensity of stimuli, germination, etc. may all cause variance in accuracy.
+            </p>
+        </div>
+    </div>
+
+    <div class="sections" style="background-color: #f1f1f1; flex-direction: column; padding: 40px;">
+        <h4 style="font-size: 45px; text-align: center;"><b>1.</b> Select an option</h4>
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'growthFromLight')" id="default">Predict growth from light position</button>
+            <button class="tablinks" onclick="openTab(event, 'lightFromGrowth'), setTimeout(defaultValue(), 3000)">Estimate light position for desired growth</button>
+        </div>
+    </div>
 
 
+    <div id="growthFromLight" class="tabcontent">
 
-
-
-            <div class="title" style="background-color: #CBDFD1;">
-                <h1 style="text-align: center;"> <u><b>Modeler</b></u> </h1>
-                <h2>A Novel Algorithm for Accurately Modeling Future Plant Growth from Photo- and Gravi-tropic Forces</h2>
-            </div>
-
-            <div class="sections" style="background-color: #90CAE1;">
-                <div class="text">
-                    <h4 style="text-align: center; font-size: 45px;"> Before you begin... </h4>
-                    <p style="text-align: center;">
-                        Algorithm does not fully consider all factors of growth and, as such, should be used as a guide, not a reality. 
-                        Plant species, plant health (dehydration, overhydration, disease, etc.), intensity of stimuli, germination, etc. may all cause variance in accuracy.
-                    </p>
-                </div>
-            </div>
+            
             <div class="sections" style="background-color: #B1F1D1;">
                 <div class="text">
-                    <h4 style="font-size: 45px;"><b>1.</b> Measure vertical height </h4>
+                    <h4 style="font-size: 45px;"><b>2.</b> Measure vertical height </h4>
                     <h5> Measure the absolute vertical height of a line from the horizontal coordinate of the shoot tip to the light source.</h5>
                     <p style="padding-top: 5px; padding-bottom: 20px;">
                         See video for instructions. Input may be positive or negative.
@@ -170,7 +219,7 @@
             </div>
             <div class="sections" style="background-color: #B1F1D1;">
                 <div class="text">
-                    <h4 style="font-size: 45px;"> <b>2.</b> Measure horizontal distance </h4>
+                    <h4 style="font-size: 45px;"> <b>3.</b> Measure horizontal distance </h4>
                     <h5> Measure the absolute horizontal distance of a line from the shoot tip to the vertical coordinate of the light source.</h5>
                     <p style="padding-top: 5px; padding-bottom: 20px;">
                         See video for instructions. Input should <i>only be positive.</i>
@@ -193,26 +242,102 @@
             </div>
             <div class="sections" style="background-color: #0d2f60;">
                 <div class="text">
-                    <h4 style="color:white; text-align: center; font-size: 45px;"> <b>3.</b> See results </h4>
+                    <h4 style="color:white; text-align: center; font-size: 45px;"> <b>4.</b> See results </h4>
                     <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; border-radius: 30px; padding: 20px;">
-                        <button style="background-color: #B1F1D1; width: 50%;" type="button" onclick="calculateResults();"> 3.1 Graph results </button>
+                        <!-- <button style="background-color: #B1F1D1; width: 50%;" type="button" onclick="solidify();"> 3.1 Graph results </button> -->
+                        <button style="background-color: #B1F1D1; width: 50%;" type="button" onclick="calculateResultsNonUpdating();"> 3.1 Graph results </button>
                     </div>
 
                 </div>
             </div>
+
             <div id="chart-with-overlay">
                 <div id="growth_model">
                 </div>
+            </div>
+        </div>
+
+        <div id="lightFromGrowth" class="tabcontent">
+                        
+            <div class="sections" style="background-color: #B1F1D1;">
+                <div class="pic">
+                    <div id="chart-updating">
+                        <div id="growth_model_updating">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="text">
+                    <h4 style="font-size: 45px;"><b>2.</b> Outline desired shape </h4>
+                    <h5> Input the desired shape you want growth to be aligned with, where (0,0) is the current tip of the shoot. </h5>
+                    <p style="padding-top: 5px; padding-bottom: 20px;">
+                        Play around with both sliders to perfect the shape (see left) you want your plant specimen to grow in.
+                    </p>
+                    <input type="range" min="1" max="1000" class="slider" id="dSlider" >
+                    <input type="range" min="-1000" max="1000"  class="slider" id="hSlider">        
+                </div>
+            </div>
+
+        <div class="sections" style="background-color: #0d2f60;">
+                <div class="text">
+                    <h4 style="color:white; text-align: center; font-size: 45px;"> <b>4.</b> See results </h4>
+                    <h5 id="results_text" style="color: white; text-align: center; font-weight:normal;">
+                        To achieve desired growth, the ratio of the x-coordinate of the light position to the y-coordinate of the light position should be 1 : 2. This ratio can be scaled up or down to fit the constrants and actual measurements of your specimen.
+                    </h5>
+                </div>
+            </div>
+            <div id="chart-updating-results">
+                <div id="growth_model_updating_results">
+                </div>
                 <div id="light_model">
                 </div>
-                <img id="light" src="/images/light.png" width="30" height="30">
+                <img id="light" src="/images/light.png" width="20" height="20">
             </div>
+        </div>
+
 
 
             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
             <!-- COMPUTATIONS -->
             <script>
+                var hSlider = document.getElementById("hSlider");
+                var dSlider = document.getElementById("dSlider");
+                
+                hSlider.addEventListener("click", () => {
+                    calculateResultsUpdating();
+                });
+
+                dSlider.addEventListener("click", () => {
+                    calculateResultsUpdating();
+                });
+
+                document.getElementById("default").click();
+                function openTab(evt, funcName) {
+                    var e, tabcontent, tablinks;
+
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (e = 0; e < tabcontent.length; e++) {
+                        tabcontent[e].style.display = "none";
+                    }
+
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (e = 0; e < tablinks.length; e++) {
+                        tablinks[e].className = tablinks[e].className.replace(" active", "");
+                    }
+
+                    document.getElementById(funcName).style.display = "block";
+                    evt.currentTarget.className += " active";
+                }
+
+                function defaultValue() {
+                    hSlider.value = 500;
+                    dSlider.value = 750;
+                    calculateResultsUpdating();
+                }
+
+
+
                 google.charts.load('current', {'packages':['corechart']});
 
 
@@ -224,10 +349,41 @@
                 const maxGrowthIterations = 1000000;
                 const chartHeaders = ['distance', 'height'];
 
-                // Computations
-                function calculateResults () {
+                // function solidify () {
+                //     var originalLightPosition = {
+                //         height: 100,
+                //         distance: 100
+                //     }
+
+                //     var hMultiplier = 1;
+                //     var dMultiplier = 1;
+
+                //     setInterval(function() {
+                //         calculateResults({...originalLightPosition});
+
+                //         if (originalLightPosition.height > 1000) {
+                //             hMultiplier = -1;
+                //         } else if (originalLightPosition.height < -600) {
+                //             hMultiplier = 1;
+                //         }
+
+                //         if (originalLightPosition.distance > 600) {
+                //             dMultiplier = -1;
+                //         } else if (originalLightPosition.distance < 100) {
+                //             dMultiplier = 1;
+                //         }
+
+                //         originalLightPosition.height += (hMultiplier * 10);
+                //         originalLightPosition.distance += (dMultiplier * 10);
+
+                //     }, 1);
+
+
+                // }
+
+                function calculateResultsNonUpdating (originalLightPosition) {
                     var results = [chartHeaders];
-    
+
                     var originalLightPosition = {
                         height: document.getElementById('h').value,
                         distance: document.getElementById('d').value
@@ -262,6 +418,48 @@
                     drawCharts(results, originalLightPosition);
                 }
 
+
+
+                function calculateResultsUpdating (originalLightPosition) {
+                    var results = [chartHeaders];
+
+                    var originalLightPosition = {
+                        height: hSlider.value,
+                        distance: dSlider.value
+                    }
+
+                    var currentLightPosition = originalLightPosition;
+                    results.push(getResultArray(originalLightPosition, currentLightPosition));
+
+                    var wentNegative = false;
+                    var negOrPos = false;
+    
+                    for(var i = 0; i < maxGrowthIterations; ++i) {
+                        if (currentLightPosition.distance < 0) {
+                            wentNegative = true;
+                        }
+        
+                        if (currentLightPosition.distance > 0) {
+                            negOrPos = false
+                        } else if (currentLightPosition.distance < 0) {
+                            negOrPos = true
+                        }              
+          
+                        currentLightPosition = getLightPositionAfterGrowthIteration(currentLightPosition);
+    
+                        if (wentNegative == true && negOrPos == false) {
+                            break;
+                        }
+    
+                        results.push(getResultArray(originalLightPosition, currentLightPosition));
+                    }
+
+                    drawChartsUpdating(results, originalLightPosition);
+
+                    resultsText = document.getElementById('results_text')
+                    resultsText.innerHTML = `To achieve desired growth, the ratio of the x-coordinate of the light position to the y-coordinate of the light position should be <br> <b style="font-size: 100px;"> ${originalLightPosition.distance} : ${originalLightPosition.height} </b> <br> This ratio can be scaled up or down to fit the constrants and actual measurements of your specimen.`
+                }
+
                 function drawCharts(results, originalLightPosition) {
                     google.charts.setOnLoadCallback(function () {
                         var minX = results.reduce((min, current, i) => i === 0 ? 0 : Math.min(current[0], min), 0);
@@ -286,6 +484,48 @@
                         var growthChart = new google.visualization.LineChart(growthChartElement);
                         growthChart.draw(data, chartOptions);
                         growthChartElement.scrollIntoView();
+
+                        var lightData = google.visualization.arrayToDataTable([chartHeaders,
+                            [Number(originalLightPosition.distance), Number(originalLightPosition.height)]
+                        ]);
+                        var lightChart = new google.visualization.LineChart(document.getElementById('light_model'));
+                        google.visualization.events.addListener(lightChart, 'ready', placeMarker.bind(lightChart, lightData));
+                        lightChart.draw(lightData, chartOptions);
+                    });
+                }
+
+                function drawChartsUpdating(results, originalLightPosition) {
+                    google.charts.setOnLoadCallback(function () {
+                        var minX = results.reduce((min, current, i) => i === 0 ? 0 : Math.min(current[0], min), 0);
+                        var maxX = results.reduce((max, current, i) => i === 0 ? 0 : Math.max(current[0], max), 0);
+                        var minY = results.reduce((min, current, i) => i === 0 ? 0 : Math.min(current[1], min), 0);
+                        var maxY = results.reduce((max, current, i) => i === 0 ? 0 : Math.max(current[1], max), 0);
+                        
+                        const xRange = maxX - minX;
+                        const yRange = maxY - minY;
+                        const scaleFactor = (0.55 * window.innerWidth) / xRange;
+                        document.getElementById("chart-updating").style.height = `${Math.abs(yRange * scaleFactor)}px`;
+                        document.getElementById("chart-updating").style.width = `${xRange * scaleFactor}px`;
+                        
+                        var chartOptions = {
+                            curveType: 'function',
+                            hAxis: { minValue: minX, maxValue: maxX },
+                            vAxis: { minValue: minY, maxValue: maxY },
+                        }
+
+                        var data = google.visualization.arrayToDataTable(results);
+                        var growthChartElement = document.getElementById('growth_model_updating');
+                        var growthChart = new google.visualization.LineChart(growthChartElement);
+                        growthChart.draw(data, chartOptions);
+
+                        const scaleFactorResults = (window.innerWidth) / xRange;
+                        document.getElementById("chart-updating-results").style.height = `${Math.abs(yRange * scaleFactorResults)}px`;
+                        document.getElementById("chart-updating-results").style.width = `${xRange * scaleFactorResults}px`;
+
+                        var growthChartElementResults = document.getElementById('growth_model_updating_results');
+                        var growthChartResults = new google.visualization.LineChart(growthChartElementResults);
+                        growthChartResults.draw(data, chartOptions);
+
 
                         var lightData = google.visualization.arrayToDataTable([chartHeaders,
                             [Number(originalLightPosition.distance), Number(originalLightPosition.height)]
